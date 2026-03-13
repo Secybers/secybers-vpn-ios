@@ -39,3 +39,12 @@ Available on the [App Store](https://apps.apple.com/app/secybers-vpn/id674436800
 ## License
 
 MIT
+
+## Verifiable Privacy
+
+Secybers is built on the principle that privacy must be provable.
+This repository is the proof. Read the [transparency page](https://secybers.com/transparency) for full details.
+
+[![App Store](https://img.shields.io/badge/App_Store-Download-blue?logo=apple)](https://apps.apple.com/app/secybers-vpn/id6744368005)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![WireGuard](https://img.shields.io/badge/Protocol-WireGuard-orange)](https://wireguard.com)
