@@ -2,8 +2,8 @@
 //  KeychainHelper.swift
 //  Secybers VPN
 //
-//  Hassas verileri (sifre, token) guvenli sekilde Keychain'de saklar.
-//  UserDefaults sifrelenmemis bir dosyadir - Keychain ise iOS tarafindan sifrelenir.
+//  Stores sensitive data (passwords, tokens) securely in the iOS Keychain.
+//  UserDefaults is unencrypted; the Keychain is encrypted by iOS.
 //
 
 import Foundation
@@ -16,12 +16,12 @@ final class KeychainHelper {
     
     private init() {}
     
-    // MARK: - Kaydet
+    // MARK: - Save
     
     func save(_ value: String, forKey key: String) {
         guard let data = value.data(using: .utf8) else { return }
         
-        // Onceki degeri sil
+        // Remove any existing value first
         delete(forKey: key)
         
         let query: [String: Any] = [
@@ -38,7 +38,7 @@ final class KeychainHelper {
         }
     }
     
-    // MARK: - Oku
+    // MARK: - Read
     
     func read(forKey key: String) -> String? {
         let query: [String: Any] = [
@@ -61,7 +61,7 @@ final class KeychainHelper {
         return value
     }
     
-    // MARK: - Sil
+    // MARK: - Delete
     
     func delete(forKey key: String) {
         let query: [String: Any] = [
@@ -73,7 +73,7 @@ final class KeychainHelper {
         SecItemDelete(query as CFDictionary)
     }
     
-    // MARK: - Tumu Sil (logout icin)
+    // MARK: - Delete All (used on logout)
     
     func deleteAll() {
         delete(forKey: "password")
