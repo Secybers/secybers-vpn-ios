@@ -2,7 +2,7 @@
 //  VPNViewModel.swift
 //  secybers-vpn
 //
-//  Created by Ahmet Yunus BAYRAM on 13.03.2025.
+//  Created by Yahya Ozmen on 13.03.2025.
 //
 
 import SwiftUI
