@@ -51,7 +51,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
             var tunFd: Int32 = -1
 
-            // En yüksek numaralı utun'u al (en son oluşturulan = bizimki)
+            // Get the highest numbered utun (the most recently created = ours)
             var highestUtunNum = -1
             for fd in 0..<1024 {
                 var buf = [CChar](repeating: 0, count: Int(IFNAMSIZ))
