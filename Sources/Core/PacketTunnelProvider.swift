@@ -32,7 +32,9 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: serverHost)
         let ipv4Settings = NEIPv4Settings(addresses: [tunnelAddress], subnetMasks: ["255.255.255.0"])
         ipv4Settings.includedRoutes = [NEIPv4Route.default()]
-        ipv4Settings.excludedRoutes = [NEIPv4Route(destinationAddress: "YOUR_BACKEND_IP", subnetMask: "255.255.255.255")]
+        // All traffic routes through the WireGuard tunnel.
+        // Production builds bypass backend API traffic from the tunnel via excludedRoutes.
+        // That logic is intentionally omitted from this open-source layer.
         networkSettings.ipv4Settings = ipv4Settings
         let dnsSettings = NEDNSSettings(servers: [dns])
         dnsSettings.matchDomains = [""]
