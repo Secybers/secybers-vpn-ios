@@ -32,6 +32,18 @@ We believe trust must be earned with code, not just words. This repository lets 
 
 The full app (UI, payment system, backend API) remains closed-source. This repository contains only the connection layer relevant to our privacy claims.
 
+## About this code
+
+This repository mirrors the privacy-critical layer of our iOS app. Some code paths visible here are simplified for transparency. For example, `PacketTunnelProvider.swift` shows a simplified routing configuration; production builds include additional logic to bypass backend API traffic from the tunnel.
+
+Production builds also include subscription verification before VPN start, handled in closed-source layers not present in this repository.
+
+What this repository proves: how WireGuard keys are generated, where they are stored, and what is sent to our servers during peer registration.
+
+What this repository does not prove: subscription state management, server selection logic, or the user interface.
+
+For the full picture, read our [transparency page](https://secybers.com/transparency).
+
 ## Full app
 
 Available on the [App Store](https://apps.apple.com/app/secybers-vpn/id6744368005).
